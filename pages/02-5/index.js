@@ -1,6 +1,6 @@
 import {
   DeleteButtonIcon,
-  EmailErrorMessage,
+  ErrorMessage,
   HeaderWrapper,
   InputAndButtonWrapper,
   InputWrapper,
@@ -9,7 +9,10 @@ import {
   RectangleIcon,
   Wrapper,
   Title,
-} from "../../styles/02/eatsRoad";
+  Line,
+  LoginButton,
+  FooterMenuWrapper,
+} from '../../styles/02/eatsRoad';
 
 export default function EatsRoadPage() {
   return (
@@ -22,11 +25,30 @@ export default function EatsRoadPage() {
         </HeaderWrapper>
         <InputAndButtonWrapper>
           <InputWrapper>
-            <Input value={'simplelife@gmail.com'}/>
+            <Input value={'simplelife@gmail.com'} type='email' />
             <DeleteButtonIcon></DeleteButtonIcon>
           </InputWrapper>
-          <EmailErrorMessage>이메일 주소를 다시 확인해주세요.</EmailErrorMessage>
+          <Line />
+          <ErrorMessage>이메일 주소를 다시 확인해주세요.</ErrorMessage>
         </InputAndButtonWrapper>
+        <InputAndButtonWrapper>
+          <InputWrapper>
+            <Input value={'●●●●●●●●'} type='password' />
+            <DeleteButtonIcon></DeleteButtonIcon>
+          </InputWrapper>
+          <Line />
+          <ErrorMessage>
+            8~16자의 영문, 숫자, 특수 문자만 사용 가능합니다.
+          </ErrorMessage>
+        </InputAndButtonWrapper>
+        <LoginButton>로그인</LoginButton>
+        <FooterMenuWrapper>
+          <span className='footermenu'>이메일 찾기</span>
+          <span>|</span>
+          <span className='footermenu'>비밀번호 찾기</span>
+          <span>|</span>
+          <span className='footermenu'>회원가입</span>
+        </FooterMenuWrapper>
       </Wrapper>
     </>
   );
