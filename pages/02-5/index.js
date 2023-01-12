@@ -12,6 +12,8 @@ import {
   Line,
   LoginButton,
   FooterMenuWrapper,
+  KakaoLoginButton,
+  KakaoIcon,
 } from '../../styles/02/eatsRoad';
 
 export default function EatsRoadPage() {
@@ -49,6 +51,10 @@ export default function EatsRoadPage() {
           <span>|</span>
           <span className='footermenu'>회원가입</span>
         </FooterMenuWrapper>
+        <KakaoLoginButton>
+          <KakaoIcon />
+          카카오톡으로 로그인
+        </KakaoLoginButton>
       </Wrapper>
     </>
   );

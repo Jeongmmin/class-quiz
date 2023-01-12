@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const Wrapper = styled.div`
   max-width: 640px;
   background-image: url('./assets/day02/img-bg@3x 1.png');
+  background-size: cover;
   height: 100vh;
   margin: 0 auto;
   display: flex;
@@ -19,11 +20,10 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const MapIcon = styled.div`
-  // position: absolute;
   background-image: url('./assets/day02/map_icon.png');
   background-size: contain;
-  height: 82px;
-  width: 66px;
+  height: 82.07px;
+  width: 66.23px;
 `;
 
 export const RectangleIcon = styled.div`
@@ -32,7 +32,7 @@ export const RectangleIcon = styled.div`
   background: #d9d9d9;
   opacity: 0.6;
   border-radius: 50px;
-  // transform: translateY(40px);
+  transform: translateY(-10px);
 `;
 
 export const Title = styled.p`
@@ -40,6 +40,7 @@ export const Title = styled.p`
   font-size: 60px;
   font-weight: 700;
   color: #ffffff;
+  margin-top: 23px;
 `;
 
 export const InputAndButtonWrapper = styled.div`
@@ -99,6 +100,7 @@ export const LoginButton = styled.button`
   padding: 19px 0;
   background: rgba(255, 27, 109, 0.6);
   border-radius: 38px;
+  border: none;
   color: #ffffff;
   font-family: 'Noto Sans KR';
   font-weight: 700;
@@ -124,4 +126,30 @@ export const FooterMenuWrapper = styled.div`
   .footermenu {
     cursor: pointer;
   }
+`;
+
+export const KakaoLoginButton = styled.button`
+  width: 540px;
+  height: 76px;
+  padding: 18px 0 20px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 225, 0, 0.6);
+  border-radius: 38px;
+  color: #ffe100;
+  font-family: 'Noto Sans KR';
+  font-weight: 700;
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 83px;
+`;
+
+export const KakaoIcon = styled.div`
+  background-image: url('/assets/day02/talk_icon.png');
+  width: 32.45px;
+  height: 29.97px;
+  background-size: cover;
+  margin-right: 29.55px;
 `;
