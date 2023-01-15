@@ -1,9 +1,12 @@
 import { gql, useMutation } from '@apollo/client';
 import { useState } from 'react';
 
-const CREATE_BOARD = gql`
-  mutation createBoard($writer: String, $title: String, $contents: String) {
-    createBoard(writer: $writer, title: $title, contents: $contents) {
+const CREATE_PRODUCT = gql`
+  mutation createProduct(
+    $seller: String
+    $createProductInput: CreateProductInput!
+  ) {
+    createProduct(seller: $seller, createProductInput: $createProductInput) {
       _id
       number
       message
@@ -12,39 +15,51 @@ const CREATE_BOARD = gql`
 `;
 
 export default function GraphqlMutationPage() {
-  const [writer, setWriter] = useState('');
-  const [title, setTitle] = useState('');
-  const [contents, setContents] = useState('');
+  const [seller, setSeller] = useState('');
+  const [name, setName] = useState('');
+  const [detail, setDetail] = useState('');
+  const [price, setPrice] = useState(0);
 
-  const [createBoard] = useMutation(CREATE_BOARD);
+  const [createProduct] = useMutation(CREATE_PRODUCT);
 
   const onClickSubmit = async () => {
-    const result = await createBoard({
+    const result = await createProduct({
       variables: {
-        writer,
-        title,
-        contents,
+        seller,
+        createProductInput: {
+          name,
+          detail,
+          price,
+        },
       },
     });
     console.log(result);
-    alert(result.data.createBoard.message);
+    alert(result.data.createProduct.message);
   };
 
-  const onChangeWriter = (e) => {
-    setWriter(e.target.value);
+  const onChangeSeller = (e) => {
+    setSeller(e.target.value);
   };
-  const onChangeTitle = (e) => {
-    setTitle(e.target.value);
+  const onChangeName = (e) => {
+    setName(e.target.value);
   };
-  const onChangeContents = (e) => {
-    setContents(e.target.value);
+  const onChangeDetail = (e) => {
+    setDetail(e.target.value);
+  };
+  const onChangePrice = (e) => {
+    setPrice(Number(e.target.value));
   };
 
   return (
     <>
-      작성자 : <input type='text' onChange={onChangeWriter} /><br/>
-      제목 : <input type='text' onChange={onChangeTitle} /><br/>
-      내용 :<input type='text' onChange={onChangeContents} /><br/>
+      판매자 : <input type='text' onChange={onChangeSeller} />
+      <br />
+      제품명 : <input type='text' onChange={onChangeName} />
+      <br />
+      제품설명 :<input type='text' onChange={onChangeDetail} />
+      <br />
+      가격 :<input type='number' onChange={onChangePrice} />
+      <br />
       <button onClick={onClickSubmit}>GRAPHQL-API 요청하기</button>
     </>
   );
