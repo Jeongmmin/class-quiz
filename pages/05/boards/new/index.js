@@ -46,7 +46,7 @@ export default function NewPage() {
         });
         console.log(result);
         alert(result.data.createProduct.message);
-        router.push(`/05/boards/detail/number`);
+        router.push(`/05/boards/detail/${result.data.createProduct.id}`);
       }else {
         alert('양식을 모두 작성해주세요')
       }
